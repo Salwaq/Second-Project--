@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { Route, Routes } from "react-router"
 import Home from "./pages/Home"
-// import Navbar from "./components/Navbar"
+import Navbar from "./components/Navbar"
 import MarvilContext from "./utils/MarvilContext"
 
 function App() {
@@ -30,8 +30,8 @@ function App() {
 
   return (
     <MarvilContext.Provider value={store}>
-      {/* <Navbar /> */}
-      hello
+      <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
