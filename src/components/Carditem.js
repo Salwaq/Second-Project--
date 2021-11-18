@@ -20,7 +20,9 @@ function Carditem(props) {
               <li>{character.name}</li>
               <li>{character.description}</li>
 
-              <li>{/* <button> Favorite</button> */}</li>
+              <li>
+                <button> </button>
+              </li>
             </ul>
           </div>
         </div>

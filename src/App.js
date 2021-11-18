@@ -2,11 +2,10 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { Route, Routes } from "react-router"
 import Home from "./pages/Home"
-// import Search from "./components/Search"
 import Navbar from "./components/Navbar"
 
 import MarvilContext from "./utils/MarvilContext"
-import style from "./App.css"
+import Apps from "./App.css"
 
 function App() {
   const [characters, setCharacters] = useState([])
