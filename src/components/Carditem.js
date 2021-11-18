@@ -1,25 +1,30 @@
-import { Col, Card } from "react-bootstrap"
 function Carditem(props) {
   const { character } = props
 
-  // const image ={character.thumbnail.path}
   return (
     <>
-      <Col>
-        <Card>
-          <Card.Img src={character.thumbnail.path + ".jpg"} />
-          {/* {character.image.extension} */}
-          {/* {character.thumbnail.path + "jpg"} */}
-          {/* {" "}{character.thumbnail.extension} */}
-          {/* + "portrait_xlarge.jpg" */}
-          {/* .{character.thumbnail.extension} */}
+      <div className="content">
+        <div className="content-inner">
+          <div className="content-front">
+            <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} height={200} />
 
-          <Card.Body>
-            <Card.Title>{character.name}</Card.Title>
-            <Card.Text>{character.description}</Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
+            {/* {character.image.extension} */}
+            {/* {character.thumbnail.path + ".jpg"} */}
+            {/* {" "}{character.thumbnail.extension} */}
+            {/* + "portrait_xlarge.jpg" */}
+            {/* .{character.thumbnail.extension} */}
+          </div>
+          <div className="content-back">
+            <h1>{character.name}</h1>
+            <ul>
+              <li>{character.name}</li>
+              <li>{character.description}</li>
+
+              <li>{/* <button> Favorite</button> */}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

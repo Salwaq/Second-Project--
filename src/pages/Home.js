@@ -7,12 +7,16 @@ import Logo from "../components/Logo"
 
 function Home() {
   const { characters } = useContext(MarvilContext)
+  let newCharacters = characters.filter(
+    character => character.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
+  )
+  console.log(newCharacters)
   return (
     <>
       <Logo />
       <Container>
         <Row xs={1} sm={2} md={4} className="g-4">
-          {characters.map(character => (
+          {newCharacters.map(character => (
             <Carditem character={character} key={character.id} />
           ))}
         </Row>
