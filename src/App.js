@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router"
 import Home from "./pages/Home"
 import Navbar from "./components/Navbar"
 import MarvilContext from "./utils/MarvilContext"
+import style from "./App.css"
 
 function App() {
   const [characters, setCharacters] = useState([])
@@ -29,13 +30,15 @@ function App() {
   }
 
   return (
-    <MarvilContext.Provider value={store}>
-      <Navbar />
+    <div className="App">
+      <MarvilContext.Provider value={store}>
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </MarvilContext.Provider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </MarvilContext.Provider>
+    </div>
   )
 }
 
