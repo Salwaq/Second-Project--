@@ -159,3 +159,24 @@ ul button {
     box-shadow: none;
     border: 2px solid white;
 }
+
+.titleComment {
+    text-align: center;
+    padding: 40px;
+    margin: 40px 0px;
+
+    background-color: brown;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.spinner {
+    display: block;
+    font-size: 200px;
+    margin: 400px auto;
+
+}

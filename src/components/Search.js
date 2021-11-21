@@ -1,25 +1,20 @@
 import { useContext, useState } from "react"
 import MarvilContext from "../utils/MarvilContext"
 
-function Search({ search }) {
-  //   const [text, setText] = useState("")
-  // const [searchField, setSearchField] = useState("")
-  const { characters } = useContext(MarvilContext)
+function Search({}) {
+  const { characters, setCharacters, allCharacters } = useContext(MarvilContext)
 
-  //   const onSearch = q => {
-  //     setText(q)
-  //     search(q)
-  //   }
-
-  // const searchCharacters = characters.filter(
-  //   character => character.name.toLowerCase().includes(character.name.toLowerCase()) === value
-  // )
-  // console.log(searchCharacters)
+  const searchCharacters = e => {
+    const text = e.target.value
+    if (text === "") return setCharacters(allCharacters)
+    const characterList = characters.filter(character => character.name.toLowerCase().includes(text.toLowerCase()))
+    setCharacters(characterList)
+  }
 
   return (
     <>
       <div>
-        <input type="search" placeholder="search" className="input-search" />
+        <input type="search" placeholder="search" name="search" className="input-search" onChange={searchCharacters} />
       </div>
     </>
   )

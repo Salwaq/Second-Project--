@@ -9,39 +9,111 @@ import Profile from "./pages/Profile"
 import SignUp from "./pages/SignUp"
 import Login from "./pages/Login"
 function App() {
+  const [allCharacters, setAllCharacters] = useState([])
   const [characters, setCharacters] = useState([])
-  // const [marvels, setMarvels] = useState([])
+  const [comments, setComments] = useState([])
   const navigate = useNavigate()
-  // const [searchCharacters, setSearchCharacters] = useState("")
-  // const [searchParam] = useState(["name"])
+  const [show, setShow] = useState(false)
+  const [isLoading, setLoading] = useState(true)
+  const handleOpen = () => {
+    setShow(true)
+  }
+  const handleClose = () => {
+    setShow(false)
+  }
 
+  //------------------------------------------------------------------------------------------------------------------------
   const getCharacters = async () => {
     try {
       const response = await axios.get(
         "https://gateway.marvel.com/v1/public/characters?ts=1636973485&apikey=9b9cf54874cc8c5b8eb24bc525ae83db&hash=ddf670078c808b7196fcaf311a30a136&limit=100"
       )
 
-      console.log("get finished")
+      // console.log("get finished")
       const result = response.data.data.results
+      setAllCharacters(result)
       setCharacters(result)
+      setLoading(false)
       // console.log(result)
     } catch (error) {
       console.log(error.result)
     }
   }
+  //----------------------------------------------------------------------------------------------------------------------------
 
-  // const getMarvels = async () => {
-  //   try {
-  //     const response = await axios.get("https://vast-chamber-06347.herokuapp.com/api/v2/marvel-598/items")
-  //     setMarvels(response.data)
-  //   } catch (error) {
-  //     console.log(error.data)
-  //   }
-  // }
+  const getComments = async () => {
+    try {
+      const response = await axios.get("https://vast-chamber-06347.herokuapp.com/api/v2/marvel-598/items")
+      setComments(response.data)
+      console.log(response.data)
+    } catch (error) {
+      console.log(error.data)
+    }
+  }
+
   useEffect(() => {
     getCharacters()
-    // getMarvels()
+    getComments()
   }, [])
+
+  //---------------------------------------------------------------------------------------------------------------------------
+
+  const addComment = async e => {
+    e.preventDefault()
+
+    try {
+      const form = e.target
+      const userBody = {
+        title: form.elements.title.value,
+        description: form.elements.description.value,
+      }
+      await axios.post("https://vast-chamber-06347.herokuapp.com/api/v2/marvel-598/items", userBody, {
+        headers: {
+          authorization: localStorage.tokenCharacter,
+        },
+      })
+      console.log("add success")
+      getComments()
+      navigate("/")
+    } catch (error) {
+      console.log(error?.response.data)
+    }
+  }
+
+  const deleteComment = async commentId => {
+    await axios.delete(`https://vast-chamber-06347.herokuapp.com/api/v2/marvel-598/items/${commentId}`, {
+      headers: {
+        Authorization: localStorage.tokenCharacter,
+      },
+    })
+    console.log("you deleted the product")
+    getComments()
+  }
+
+  //confirm
+  // ----------------------------------------------------------------------------------------------------------
+  const confirmComment = async (e, commentId) => {
+    e.preventDefault()
+    try {
+      const form = e.target
+
+      const userBody = {
+        title: form.elements.title.value,
+        description: form.elements.description.value,
+      }
+      await axios.put(`https://vast-chamber-06347.herokuapp.com/api/v2/marvel-598/items/${commentId}`, userBody, {
+        headers: {
+          authorization: localStorage.tokenCharacter,
+        },
+      })
+      console.log("confirm success")
+      getComments()
+      navigate("/")
+    } catch (error) {
+      console.log(error?.response.data)
+    }
+  }
+  //----------------------------------------------------------------------------------------------------------------
 
   const signup = async e => {
     e.preventDefault()
@@ -61,6 +133,8 @@ function App() {
       console.log(error.response.data)
     }
   }
+  //-----------------------------------------------------------------------------------------------------------------
+
   const login = async e => {
     e.preventDefault()
 
@@ -82,27 +156,33 @@ function App() {
       console.log(error.response.data)
     }
   }
-
+  //-----------------------------------------------------------------------------------------------------------------------
   const logout = () => {
     localStorage.removeItem("tokenCharacter")
     navigate("/")
   }
-
+  //-----------------------------------------------------------------------------------------------------------------------
   const store = {
     characters: characters,
+    comments: comments,
     signup: signup,
     login: login,
     logout: logout,
-    // searchCharacters: searchCharacters,
-
-    // searchParam: searchParam,
+    addComment: addComment,
+    deleteComment: deleteComment,
+    confirmComment: confirmComment,
+    handleOpen: handleOpen,
+    handleClose: handleClose,
+    show: show,
+    setCharacters: setCharacters,
+    allCharacters: allCharacters,
+    isLoading: isLoading,
   }
 
   return (
     <div className="App">
       <MarvilContext.Provider value={store}>
         <Navbar />
-        {/* <Search search={q => setQuery(q)} /> */}
 
         <Routes>
           <Route path="/" element={<Home />} />
