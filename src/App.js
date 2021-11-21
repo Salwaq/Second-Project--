@@ -15,6 +15,7 @@ function App() {
   const navigate = useNavigate()
   const [show, setShow] = useState(false)
   const [isLoading, setLoading] = useState(true)
+  const [profile, setProfile] = useState(null)
   const handleOpen = () => {
     setShow(true)
   }
@@ -54,6 +55,7 @@ function App() {
   useEffect(() => {
     getCharacters()
     getComments()
+    getProfile()
   }, [])
 
   //---------------------------------------------------------------------------------------------------------------------------
@@ -162,6 +164,20 @@ function App() {
     navigate("/")
   }
   //-----------------------------------------------------------------------------------------------------------------------
+  const getProfile = async () => {
+    try {
+      const response = await axios.get("https://vast-chamber-06347.herokuapp.com/api/user/me", {
+        headers: {
+          Authorization: localStorage.tokenCharacter,
+        },
+      })
+      setProfile(response.data)
+      console.log(response.data)
+    } catch (error) {
+      console.log(error.response?.data)
+    }
+  }
+  //-----------------------------------------------------------------------------------------------------------------------
   const store = {
     characters: characters,
     comments: comments,
@@ -177,6 +193,7 @@ function App() {
     setCharacters: setCharacters,
     allCharacters: allCharacters,
     isLoading: isLoading,
+    profile: profile,
   }
 
   return (

@@ -5,7 +5,7 @@ import MarvilContext from "../utils/MarvilContext"
 function Carditem(props) {
   const [smShow, setSmShow] = useState(false)
   const { character } = props
-  const { addComment } = useContext(MarvilContext)
+  const { addComment, handleClose } = useContext(MarvilContext)
   // console.log(character.id)
 
   return (
@@ -32,6 +32,7 @@ function Carditem(props) {
               </li>
             </ul>
             <Button onClick={() => setSmShow(true)}>Add comment</Button>{" "}
+            {/* ------------------------------------------------------------------------------------------- */}
             <>
               <Modal
                 size="sm"
@@ -48,9 +49,11 @@ function Carditem(props) {
                     <input type="text" name="title" />
                   </Modal.Body>
                   <Modal.Body>
-                    <input type="textarea" name="description" />
+                    <textarea type="textarea" rows="5" name="description" />
                   </Modal.Body>
-                  <button type="submit">Add</button>
+                  <Button type="submit" onClick={handleClose}>
+                    Add
+                  </Button>
                 </Form>{" "}
               </Modal>
             </>

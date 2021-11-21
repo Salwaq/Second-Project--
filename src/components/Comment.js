@@ -3,7 +3,7 @@ import { Card, Button, Modal, Row, Form } from "react-bootstrap"
 import MarvilContext from "../utils/MarvilContext"
 import EditModal from "./EditModal"
 function Comment(props) {
-  const { comment } = props
+  const { comment, inProfile } = props
   const { deleteComment, handleOpen } = useContext(MarvilContext)
 
   return (
@@ -16,15 +16,17 @@ function Comment(props) {
         </Card.Body>
         <div className="mb-2 mx-2 ">
           {localStorage.tokenCharacter !== undefined ? (
-            <>
-              <Button variant="outline-success" onClick={handleOpen}>
-                Edit
-              </Button>{" "}
-              <></>
-              <Button variant="outline-danger" onClick={() => deleteComment(comment._id)}>
-                Delete
-              </Button>
-            </>
+            inProfile ? null : (
+              <>
+                <Button variant="outline-success" onClick={handleOpen}>
+                  Edit
+                </Button>{" "}
+                <></>
+                <Button variant="outline-danger" onClick={() => deleteComment(comment._id)}>
+                  Delete
+                </Button>
+              </>
+            )
           ) : null}
         </div>
       </Card>
