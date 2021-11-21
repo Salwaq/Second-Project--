@@ -5,7 +5,7 @@ import MarvilContext from "../utils/MarvilContext"
 import { Container, Row } from "react-bootstrap"
 import Logo from "../components/Logo"
 
-import Search from "../components/Search"
+// import Search from "../components/Search"
 
 function Home() {
   const { characters } = useContext(MarvilContext)
@@ -16,7 +16,7 @@ function Home() {
   return (
     <>
       <Logo />
-      <Search />
+      {/* <Search /> */}
       <Container>
         <Row xs={1} sm={2} md={4} className="g-4">
           {newCharacters.map(character => (

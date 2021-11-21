@@ -24,8 +24,7 @@ function App() {
       console.log("get finished")
       const result = response.data.data.results
       setCharacters(result)
-      // setSearchCharacters(result)
-      console.log(result)
+      // console.log(result)
     } catch (error) {
       console.log(error.result)
     }
@@ -103,6 +102,7 @@ function App() {
     <div className="App">
       <MarvilContext.Provider value={store}>
         <Navbar />
+        {/* <Search search={q => setQuery(q)} /> */}
 
         <Routes>
           <Route path="/" element={<Home />} />
