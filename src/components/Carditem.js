@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom"
 function Carditem(props) {
   const { character } = props
+
+  // console.log(character.id)
 
   return (
     <>
@@ -21,7 +24,7 @@ function Carditem(props) {
               <li>{character.description}</li>
 
               <li>
-                <button> </button>
+                <button id={character.id}></button>
               </li>
             </ul>
           </div>
