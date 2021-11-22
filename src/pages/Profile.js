@@ -4,24 +4,27 @@ import Comment from "../components/Comment"
 
 function Profile() {
   const { profile, comments } = useContext(MarvilContext)
+  if (!profile) {
+    return <h1>Loading ..</h1>
+  }
   const myComment = comments.filter(comment => comment._user._id === profile._id)
+
   return (
-    <>
-      <div>
-        <img src={profile.photo} alt="" />
+    <div className="profile">
+      <div className="infoProfile">
+        <img src={profile.photo} height={200} alt="" />
         <h3>
           {profile.firstName} {profile.lastName}
         </h3>
         <p>{profile.email}</p>
       </div>
-
-      <div>
-        <h2>My comment:</h2>
+      <h2>My comment:</h2>
+      <div className=" cardProfile">
         {myComment.map(comment => (
           <Comment comment={comment} inProfile={true} />
         ))}
       </div>
-    </>
+    </div>
   )
 }
 

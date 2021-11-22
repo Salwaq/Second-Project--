@@ -12,10 +12,10 @@ function EditModal(props) {
           <Card>
             <Card.Header>Edit Comment:</Card.Header>
             <Card.Body>
-              <Card.Title>title</Card.Title>
+              <Card.Title>Name</Card.Title>
               <input name="title" type="text" defaultValue={comment.title} />
-              <Card.Text>description</Card.Text>
-              <input name="description" type="textarea" defaultValue={comment.description} />
+              <Card.Text>Description </Card.Text>
+              <textarea type="textarea" rows="5" name="description" defaultValue={comment.description} />
             </Card.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>

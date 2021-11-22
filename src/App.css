@@ -1,3 +1,7 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .App {
     background-image: url("https://i.pinimg.com/564x/26/9e/b4/269eb4374f0f63a14c4e28aac71c6a0b.jpg");
     background-repeat: no-repeat;
@@ -83,82 +87,27 @@
     margin: 50px auto;
 }
 
-ul button {
-    padding: 20px 20px;
-    background-color: none;
-    background-image: url("data:image/png;base64,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");
+
+.backGlog {
+    background-image: url("https://trumpwallpapers.com/wp-content/uploads/Marvel-Wallpaper-04-3840-x-2160.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 50px;
-
-}
-
-.form-signup-login {
-    height: 150vh;
-}
-
-.div-signup-login {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    align-items: center;
+
+
 }
 
-.form-signup-login-items {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.form-signup-login-items label {
-    background-color: black;
+.formSign {
+    border: 5px solid rgba(0, 0, 0, 0.329);
+    width: 50%;
     color: white;
-    border: 1px solid white;
-    width: 90px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 10px 5px 5px rgba(0, 0, 255, 0.466);
-    margin-bottom: 5px;
+    padding: 40px 0;
+    margin-top: 60px;
+    background-color: rgba(0, 0, 0, 0.781);
 }
 
-.form-signup-login-items input {
-    border-radius: 10px;
-    padding: 10px 20px;
-    border: 0;
-    font-size: 20px;
-}
 
-.div-signup-login h2 {
-
-    width: 200px;
-    text-align: center;
-    margin-top: 50px;
-    border-radius: 10px;
-    border: 0;
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    border: 1px solid white;
-    box-shadow: 10px 5px 5px rgba(0, 0, 255, 0.466);
-}
-
-.form-signup-login button {
-    border-radius: 10px;
-    border: 0;
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    border: 1px solid white;
-    box-shadow: 10px 5px 5px rgba(0, 0, 255, 0.288);
-}
-
-.form-signup-login button:hover {
-    background-color: rgba(0, 0, 255, 0.288);
-    color: white;
-    opacity: 0.8;
-    box-shadow: none;
-    border: 2px solid white;
-}
 
 .titleComment {
     text-align: center;
@@ -178,5 +127,72 @@ ul button {
     display: block;
     font-size: 200px;
     margin: 400px auto;
+
+}
+
+.cardProfile {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin: auto;
+
+
+
+}
+
+.AddModal {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+
+}
+
+.profile {
+    background-image: url("https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/997070/6704338131eac5f8ab62a23153e5d5c8712393b1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.infoProfile {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    text-align: center;
+    color: white;
+    gap: 10px;
+
+
+
+}
+
+
+h2 {
+    margin: 60px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+
+}
+
+.infoProfile img {
+    margin: auto;
+    padding: 40px 40px;
+
+}
+
+.infoProfile p {
+    background-color: black;
+    margin: auto;
+
+}
+
+.infoProfile h3 {
+    background-color: black;
+    margin: auto;
+
 
 }

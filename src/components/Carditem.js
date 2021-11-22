@@ -1,5 +1,4 @@
 import { Button, Modal, Form } from "react-bootstrap"
-import { Link } from "react-router-dom"
 import { useContext, useState } from "react"
 import MarvilContext from "../utils/MarvilContext"
 function Carditem(props) {
@@ -13,7 +12,7 @@ function Carditem(props) {
       <div className="content">
         <div className="content-inner">
           <div className="content-front">
-            <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} height={200} />
+            <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} height={200} alt="" />
 
             {/* {character.image.extension} */}
             {/* {character.thumbnail.path + ".jpg"} */}
@@ -26,10 +25,6 @@ function Carditem(props) {
             <ul>
               <li>{character.name}</li>
               <li>{character.description}</li>
-
-              <li>
-                <button id={character.id}></button>
-              </li>
             </ul>
             <Button onClick={() => setSmShow(true)}>Add comment</Button>{" "}
             {/* ------------------------------------------------------------------------------------------- */}
@@ -40,18 +35,18 @@ function Carditem(props) {
                 onHide={() => setSmShow(false)}
                 aria-labelledby="example-modal-sizes-title-sm"
               >
-                <Form onSubmit={addComment}>
+                <Form className={"AddModal"} onSubmit={addComment}>
                   <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-sm">Add Comment</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
                     {" "}
-                    <input type="text" name="title" />
+                    <input type="text" name="title" placeholder="Tybe your name" />
                   </Modal.Body>
                   <Modal.Body>
                     <textarea type="textarea" rows="5" name="description" />
                   </Modal.Body>
-                  <Button type="submit" onClick={handleClose}>
+                  <Button variant="dark" type="submit" onClick={() => setSmShow(false)}>
                     Add
                   </Button>
                 </Form>{" "}

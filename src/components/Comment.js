@@ -1,5 +1,5 @@
-import { useContext, useState } from "react"
-import { Card, Button, Modal, Row, Form } from "react-bootstrap"
+import { useContext } from "react"
+import { Card, Button } from "react-bootstrap"
 import MarvilContext from "../utils/MarvilContext"
 import EditModal from "./EditModal"
 function Comment(props) {
@@ -8,31 +8,29 @@ function Comment(props) {
 
   return (
     <div>
-      <Card className="mb-2 mx-2">
+      <Card className="mb-2 mx-2 w-100">
         <Card.Header>Comment:</Card.Header>
         <Card.Body>
           <Card.Title>{comment.title}</Card.Title>
           <Card.Text>{comment.description}</Card.Text>
         </Card.Body>
         <div className="mb-2 mx-2 ">
-          {localStorage.tokenCharacter !== undefined ? (
-            inProfile ? null : (
-              <>
-                <Button variant="outline-success" onClick={handleOpen}>
-                  Edit
-                </Button>{" "}
-                <></>
-                <Button variant="outline-danger" onClick={() => deleteComment(comment._id)}>
-                  Delete
-                </Button>
-              </>
-            )
+          {inProfile ? (
+            <>
+              <Button variant="outline-success" id={comment._id} onClick={handleOpen}>
+                Edit
+              </Button>{" "}
+              <></>
+              <Button variant="outline-danger" onClick={() => deleteComment(comment._id)}>
+                Delete
+              </Button>
+            </>
           ) : null}
         </div>
       </Card>
 
       {/* ---------------------------------------------------------------------- */}
-      <EditModal comment={comment} />
+      <EditModal comment={comment} commentId={comment._id} />
     </div>
   )
 }

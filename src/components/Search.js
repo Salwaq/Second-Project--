@@ -1,7 +1,7 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import MarvilContext from "../utils/MarvilContext"
 
-function Search({}) {
+function Search() {
   const { characters, setCharacters, allCharacters } = useContext(MarvilContext)
 
   const searchCharacters = e => {

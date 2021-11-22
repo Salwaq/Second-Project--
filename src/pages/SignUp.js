@@ -1,27 +1,45 @@
 import { useContext } from "react"
+import { Form, Button, Container } from "react-bootstrap"
 import MarvilContext from "../utils/MarvilContext"
 
 function SignUp() {
   const { signup } = useContext(MarvilContext)
   return (
-    <form className="form-signup-login" onSubmit={signup}>
-      <div className="div-signup-login">
-        <h2>Signup</h2>
-        <div className="form-signup-login-items">
-          <label>First Name:</label> <input name="firstName" type="text" placeholder="Enter your first Name" />
-          <br />
-          <label>Last Name:</label> <input name="lastName" type="text" placeholder="Enter your Last Name" />
-          <br />
-          <label>Email:</label> <input name="email" type="email" placeholder="Enter your email" />
-          <br />
-          <label>Password:</label> <input name="password" type="password" placeholder="Enter your password" />
-          <br />
-          <label>Photo:</label> <input name="photo" type="url" placeholder="Enter the photo link" />
-          <br />
-        </div>
-        <button type="submit">Sign Up</button>
-      </div>
-    </form>
+    // <Fo
+    <div className="backGlog">
+      <Container className="formSign">
+        <Form className="w-50 mx-auto " onSubmit={signup}>
+          <Form.Group controlId="formBasicFirstName">
+            <Form.Label>First name</Form.Label>
+            <Form.Control type="text" name="firstName" placeholder="First name" />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicLastName">
+            <Form.Label>Last name</Form.Label>
+            <Form.Control type="text" name="lastName" placeholder="Last name" />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicimage">
+            <Form.Label>image</Form.Label>
+            <Form.Control type="url" name="photo" placeholder="image" />
+          </Form.Group>
+
+          <Button className="mb-3" variant="secondary" type="submit">
+            Signup
+          </Button>
+        </Form>
+      </Container>
+    </div>
   )
 }
 

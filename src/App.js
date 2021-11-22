@@ -55,7 +55,10 @@ function App() {
   useEffect(() => {
     getCharacters()
     getComments()
-    getProfile()
+
+    if (localStorage.tokenCharacter !== undefined) {
+      getProfile()
+    }
   }, [])
 
   //---------------------------------------------------------------------------------------------------------------------------
@@ -71,11 +74,12 @@ function App() {
       }
       await axios.post("https://vast-chamber-06347.herokuapp.com/api/v2/marvel-598/items", userBody, {
         headers: {
-          authorization: localStorage.tokenCharacter,
+          Authorization: localStorage.tokenCharacter,
         },
       })
       console.log("add success")
       getComments()
+
       navigate("/")
     } catch (error) {
       console.log(error?.response.data)
@@ -105,12 +109,12 @@ function App() {
       }
       await axios.put(`https://vast-chamber-06347.herokuapp.com/api/v2/marvel-598/items/${commentId}`, userBody, {
         headers: {
-          authorization: localStorage.tokenCharacter,
+          Authorization: localStorage.tokenCharacter,
         },
       })
+      console.log(commentId)
       console.log("confirm success")
       getComments()
-      navigate("/")
     } catch (error) {
       console.log(error?.response.data)
     }
@@ -174,7 +178,7 @@ function App() {
       setProfile(response.data)
       console.log(response.data)
     } catch (error) {
-      console.log(error.response?.data)
+      // console.log(error.response?.data)
     }
   }
   //-----------------------------------------------------------------------------------------------------------------------

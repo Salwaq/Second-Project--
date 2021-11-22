@@ -1,21 +1,31 @@
 import { useContext } from "react"
+import { Form, Button, Container } from "react-bootstrap"
 import MarvilContext from "../utils/MarvilContext"
 
 function Login() {
   const { login } = useContext(MarvilContext)
   return (
-    <form className="form-signup-login" onSubmit={login}>
-      <div className="div-signup-login">
-        <h2>Login</h2>
-        <div className="form-signup-login-items">
-          <label>Email:</label> <input name="email" type="email" placeholder="Enter your email" />
-          <br />
-          <label>Password</label> <input name="password" type="password" placeholder="Enter your password" />
-          <br />
-        </div>
-        <button type="submit">Login</button>
+    <>
+      <div className="backGlog">
+        <Container className="formSign">
+          <Form className="w-50 mx-auto " onSubmit={login}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email </Form.Label>
+              <Form.Control name="email" type="email" placeholder="Enter email" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control name="password" type="password" placeholder="Password" />
+            </Form.Group>
+
+            <Button className="mb-3" variant="secondary" type="submit">
+              Login
+            </Button>
+          </Form>
+        </Container>
       </div>
-    </form>
+    </>
   )
 }
 
