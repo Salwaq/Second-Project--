@@ -104,7 +104,6 @@ function App() {
     e.preventDefault()
     try {
       const form = e.target
-
       const userBody = {
         title: form.elements.title.value,
         description: form.elements.description.value,
