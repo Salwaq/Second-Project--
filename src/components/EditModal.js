@@ -2,7 +2,8 @@ import { useContext } from "react"
 import MarvilContext from "../utils/MarvilContext"
 import { Card, Button, Modal, Form } from "react-bootstrap"
 function EditModal(props) {
-  const { comment } = props
+  const { comment, commentId } = props
+  console.log(commentId)
   const { confirmComment, show, handleClose } = useContext(MarvilContext)
   return (
     <>

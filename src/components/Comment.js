@@ -19,7 +19,7 @@ function Comment(props) {
         <div className="mb-2 mx-2 ">
           {inProfile ? (
             <>
-              <Button variant="outline-success" id={comment._id} onClick={handleOpen}>
+              <Button variant="outline-success" onClick={handleOpen}>
                 Edit
               </Button>{" "}
               <></>
@@ -32,7 +32,7 @@ function Comment(props) {
       </Card>
 
       {/* ---------------------------------------------------------------------- */}
-      <EditModal comment={comment} commentId={comment._id} />
+      <EditModal commentId={comment._id} comment={comment} />
     </div>
   )
 }
