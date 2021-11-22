@@ -4,7 +4,7 @@ import { Route, Routes, useNavigate } from "react-router-dom"
 import Home from "./pages/Home"
 import Navbar from "./components/Navbar"
 import MarvilContext from "./utils/MarvilContext"
-import Apps from "./App.css"
+import Apps from "./Apps.css"
 import Profile from "./pages/Profile"
 import SignUp from "./pages/SignUp"
 import Login from "./pages/Login"
@@ -13,16 +13,9 @@ function App() {
   const [characters, setCharacters] = useState([])
   const [comments, setComments] = useState([])
   const navigate = useNavigate()
-  const [show, setShow] = useState(false)
+
   const [isLoading, setLoading] = useState(true)
   const [profile, setProfile] = useState(null)
-
-  const handleOpen = () => {
-    setShow(true)
-  }
-  const handleClose = () => {
-    setShow(false)
-  }
 
   //------------------------------------------------------------------------------------------------------------------------
   const getCharacters = async () => {
@@ -192,9 +185,6 @@ function App() {
     addComment: addComment,
     deleteComment: deleteComment,
     confirmComment: confirmComment,
-    handleOpen: handleOpen,
-    handleClose: handleClose,
-    show: show,
     setCharacters: setCharacters,
     allCharacters: allCharacters,
     isLoading: isLoading,
