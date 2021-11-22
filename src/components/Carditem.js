@@ -4,7 +4,7 @@ import MarvilContext from "../utils/MarvilContext"
 function Carditem(props) {
   const [smShow, setSmShow] = useState(false)
   const { character } = props
-  const { addComment, handleClose } = useContext(MarvilContext)
+  const { addComment } = useContext(MarvilContext)
   // console.log(character.id)
 
   return (
@@ -41,7 +41,7 @@ function Carditem(props) {
                   </Modal.Header>
                   <Modal.Body>
                     {" "}
-                    <input type="text" name="title" placeholder="Tybe your name" />
+                    <input type="text" name="title" placeholder="Tybe character name" />
                   </Modal.Body>
                   <Modal.Body>
                     <textarea type="textarea" rows="5" name="description" />

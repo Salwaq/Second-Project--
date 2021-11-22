@@ -7,9 +7,11 @@ function Comment(props) {
   const { deleteComment, handleOpen } = useContext(MarvilContext)
 
   return (
-    <div>
+    <div className="comment">
       <Card className="mb-2 mx-2 w-100">
-        <Card.Header>Comment:</Card.Header>
+        <Card.Header>
+          {comment._user.firstName} {comment._user.lastName}
+        </Card.Header>
         <Card.Body>
           <Card.Title>{comment.title}</Card.Title>
           <Card.Text>{comment.description}</Card.Text>

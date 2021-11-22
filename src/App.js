@@ -16,6 +16,7 @@ function App() {
   const [show, setShow] = useState(false)
   const [isLoading, setLoading] = useState(true)
   const [profile, setProfile] = useState(null)
+
   const handleOpen = () => {
     setShow(true)
   }
@@ -83,6 +84,7 @@ function App() {
       navigate("/")
     } catch (error) {
       console.log(error?.response.data)
+      alert(error.response.data)
     }
   }
 

@@ -1,5 +1,6 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .App {
@@ -120,7 +121,8 @@
 .comment {
     display: flex;
     flex-direction: row;
-    margin: auto;
+    perspective: 1000px;
+
 }
 
 .spinner {
