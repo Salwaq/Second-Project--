@@ -14,6 +14,9 @@ function NavbarItem() {
             <Link to="/" className="navbar-brand">
               Marvel
             </Link>
+            <Link to="/introduction" className="navbar-brand">
+              Characters
+            </Link>
 
             <Nav className="ms-auto">
               {localStorage.tokenCharacter === undefined ? (
