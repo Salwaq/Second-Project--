@@ -4,6 +4,7 @@ import Comment from "../components/Comment"
 
 function Profile() {
   const { profile, comments } = useContext(MarvilContext)
+  console.log(profile)
   if (!profile) {
     return <h1>Loading ..</h1>
   }
@@ -21,7 +22,7 @@ function Profile() {
       <h2>My comment:</h2>
       <div className=" cardProfile">
         {myComment.map(comment => (
-          <Comment comment={comment} inProfile={true} />
+          <Comment comment={comment} id={comment._id} inProfile={true} />
         ))}
       </div>
     </div>
