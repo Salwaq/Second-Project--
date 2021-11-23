@@ -153,6 +153,7 @@ function App() {
       // getMarvels()
       navigate("/")
       getCharacters()
+      getProfile()
     } catch (error) {
       console.log(error.response.data)
     }
