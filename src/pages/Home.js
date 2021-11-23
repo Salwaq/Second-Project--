@@ -12,7 +12,7 @@ function Home() {
   let newCharacters = characters.filter(
     character => character.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
   )
-  // console.log(newCharacters)
+  console.log(newCharacters)
   return (
     <>
       <Logo />
