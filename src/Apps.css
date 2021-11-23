@@ -21,6 +21,25 @@
 }
 
 
+.home {
+    position: absolute;
+    right: 350px;
+    top: 300px;
+    text-align: center;
+    margin: auto;
+    color: white;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.637);
+    text-align: center;
+    border-radius: 10px;
+
+
+}
+
+.home p {
+    font-size: 25px;
+    color: rgb(187, 187, 187);
+}
 
 .content {
     cursor: pointer;

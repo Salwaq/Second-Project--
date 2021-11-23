@@ -25,19 +25,24 @@ function Carditem(props) {
             </Button>{" "}
             {/* ------------------------------------------------------------------------------------------- */}
             <>
-              <Modal show={show} onHide={() => setShow(false)} aria-labelledby="example-modal-sizes-title-sm">
+              <Modal show={show} onHide={() => setShow(false)} className="modal-90w ">
                 <Form onSubmit={addComment}>
                   <Modal.Header closeButton>
-                    <Modal.Title id="example-modal-sizes-title-sm">Add Comment</Modal.Title>
+                    <Modal.Title>Add Comment</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
                     {" "}
-                    <input type="text" name="title" placeholder="Tybe character name" />
+                    <Form.Control type="text" name="title" placeholder="Tybe character name" />
                   </Modal.Body>
                   <Modal.Body>
-                    <textarea type="textarea" rows="5" name="description" />
+                    <Form.Control
+                      as="textarea"
+                      placeholder="Leave a comment here"
+                      style={{ height: "100px" }}
+                      name="description"
+                    />
                   </Modal.Body>
-                  <Button variant="dark" type="submit" onClick={() => setShow(false)}>
+                  <Button size="lg" className="mx-3 my-3" variant="dark" type="submit" onClick={() => setShow(false)}>
                     Add
                   </Button>
                 </Form>{" "}

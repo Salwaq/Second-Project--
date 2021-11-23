@@ -8,6 +8,7 @@ import Apps from "./Apps.css"
 import Profile from "./pages/Profile"
 import SignUp from "./pages/SignUp"
 import Login from "./pages/Login"
+import Introduction from "./pages/Introduction"
 function App() {
   const [allCharacters, setAllCharacters] = useState([])
   const [characters, setCharacters] = useState([])
@@ -24,12 +25,12 @@ function App() {
         "https://gateway.marvel.com/v1/public/characters?ts=1636973485&apikey=9b9cf54874cc8c5b8eb24bc525ae83db&hash=ddf670078c808b7196fcaf311a30a136&limit=100"
       )
 
-      // console.log("get finished")
+      console.log("get finished")
       const result = response.data.data.results
       setAllCharacters(result)
       setCharacters(result)
       setLoading(false)
-      // console.log(result)
+      console.log(result)
     } catch (error) {
       console.log(error.result)
     }
@@ -74,7 +75,7 @@ function App() {
       console.log("add success")
       getComments()
 
-      navigate("/")
+      navigate("/introduction")
     } catch (error) {
       console.log(error?.response.data)
       alert(error.response.data)
@@ -198,6 +199,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/introduction" element={<Introduction />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
