@@ -132,6 +132,7 @@ function App() {
       navigate("/login")
     } catch (error) {
       console.log(error.response.data)
+      alert(error.response.data)
     }
   }
   //-----------------------------------------------------------------------------------------------------------------
@@ -153,8 +154,10 @@ function App() {
       // getMarvels()
       navigate("/")
       getCharacters()
+      getProfile()
     } catch (error) {
       console.log(error.response.data)
+      alert(error.response.data)
     }
   }
   //-----------------------------------------------------------------------------------------------------------------------
@@ -173,7 +176,7 @@ function App() {
       setProfile(response.data)
       console.log(response.data)
     } catch (error) {
-      // console.log(error.response?.data)
+      console.log(error.response?.data)
     }
   }
   //-----------------------------------------------------------------------------------------------------------------------
