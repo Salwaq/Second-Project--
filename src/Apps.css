@@ -208,3 +208,7 @@ h2 {
 
 
 }
+
+.logout {
+    cursor: pointer;
+}

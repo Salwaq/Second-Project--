@@ -33,7 +33,7 @@ function NavbarItem() {
                   <Link to="/profile" className="nav-link">
                     Profile
                   </Link>
-                  <div className="nav-link" onClick={logout}>
+                  <div className="nav-link logout" onClick={logout}>
                     Logout
                   </div>
                 </>
