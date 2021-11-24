@@ -7,7 +7,7 @@ function Home() {
           muted
           loop
           autoPlay
-          height={800}
+          height={754}
         />
       </div>
 
