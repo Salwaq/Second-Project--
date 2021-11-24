@@ -77,7 +77,7 @@ function App() {
 
       navigate("/introduction")
     } catch (error) {
-      console.log(error?.response.data)
+      console.log(error.response?.data)
       alert(error.response.data)
     }
   }
