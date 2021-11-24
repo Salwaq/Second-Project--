@@ -1,4 +1,3 @@
-import { Carousel } from "react-bootstrap"
 function Home() {
   return (
     <>
